@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ---
 ![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)
 ![GitLab](https://img.shields.io/badge/gitlab-%23181717.svg?style=for-the-badge&logo=gitlab&logoColor=white)
@@ -81,3 +82,7 @@ Người sử dụng truy cập theo đường dẫn _http://localhost:8069/_ đ
 
 Hoàn tất
     
+=======
+# TTDN-CNTT15-04-N9
+Bài tập lớn học phần Thực tập doanh nghiệp - Nhóm 9 - Lớp CNTT 15-04 - Khoa Công nghệ thông tin - Đại học Đại Nam
+>>>>>>> a7276eaa (Initial commit)

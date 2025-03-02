@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <record id="view_cham_cong_form" model="ir.ui.view">
-            <field name="name">cham_cong.form</field>
-            <field name="model">cham_cong</field>
+        <record id="view_phong_ban_form" model="ir.ui.view">
+            <field name="name">phong_ban.form</field>
+            <field name="model">phong_ban</field>
             <field name="arch" type="xml">
                 <form>
                     <sheet>
                         <group>
-                            <field name="nhan_vien_id"/>
-                            <field name="ngay"/>
-                            <field name="trang_thai"/>
+                            <field name="ten_phong_ban"/>
+                            <field name="ma_phong_ban"/>
+                            <field name="truong_phong_id"/>
                         </group>
                     </sheet>
                 </form>
             </field>
         </record>
 
-        <record id="view_cham_cong_tree" model="ir.ui.view">
-            <field name="name">cham_cong.tree</field>
-            <field name="model">cham_cong</field>
+        <record id="view_phong_ban_tree" model="ir.ui.view">
+            <field name="name">phong_ban.tree</field>
+            <field name="model">phong_ban</field>
             <field name="arch" type="xml">
                 <tree>
-                    <field name="nhan_vien_id"/>
-                    <field name="ngay"/>
-                    <field name="trang_thai"/>
+                    <field name="ten_phong_ban"/>
+                    <field name="ma_phong_ban"/>
+                    <field name="truong_phong_id"/>
                 </tree>
             </field>
         </record>
 
-        <record id="action_cham_cong" model="ir.actions.act_window">
-            <field name="name">Chấm công</field>
-            <field name="res_model">cham_cong</field>
+        <record id="action_phong_ban" model="ir.actions.act_window">
+            <field name="name">Phòng ban</field>
+            <field name="res_model">phong_ban</field>
             <field name="view_mode">tree,form</field>
         </record>
     </data>

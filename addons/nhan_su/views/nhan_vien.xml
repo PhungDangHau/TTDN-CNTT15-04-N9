@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
+        <!-- Form View -->
         <record id="view_nhan_vien_form" model="ir.ui.view">
             <field name="name">nhan_vien</field>
             <field name="model">nhan_vien</field>
@@ -10,47 +11,56 @@
                         <div class="oe_read_only" style="font-size:25px">Nhân viên</div>
                         <group col="4" string="Thông tin chung">
                             <field name="ma_dinh_danh"/>
+                            <field name="ho_ten"/>  <!-- Thêm trường Họ Tên -->
                             <field name="ngay_sinh"/>
                             <field name="que_quan"/>
                             <field name="email"/>
+                            <field name="so_dien_thoai"/>  <!-- Thêm trường Số Điện Thoại -->
                         </group>
                     </sheet>
                 </form>
             </field>
         </record>
 
+        <!-- Tree View -->
         <record id="view_nhan_vien_tree" model="ir.ui.view">
             <field name="name">nhan_vien</field>
             <field name="model">nhan_vien</field>
             <field name="arch" type="xml">
                 <tree>
                     <field name="ma_dinh_danh"/>
+                    <field name="ho_ten"/> 
                     <field name="ngay_sinh"/>
                     <field name="que_quan"/>
                     <field name="email"/>
+                    <field name="so_dien_thoai"/>  
                 </tree>
             </field>
         </record>
 
+        <!-- Search View -->
         <record model="ir.ui.view" id="nhan_vien_search">
             <field name="model">nhan_vien</field>
             <field name="arch" type="xml">
                 <search>
+                    <field name="ho_ten"/>  
                     <field name="ma_dinh_danh"/>
                     <field name="ngay_sinh"/>
                     <field name="que_quan"/>
                     <field name="email"/>
+                    <field name="so_dien_thoai"/> 
                 </search>
             </field>
         </record>
 
+        <!-- Action -->
         <record id="action_nhan_vien" model="ir.actions.act_window">
             <field name="name">Nhân viên</field>
             <field name="res_model">nhan_vien</field>
             <field name="view_mode">tree,form</field>
-            <field name="search_view_id" ref = "nhan_vien_search"/>
+            <field name="search_view_id" ref="nhan_vien_search"/>
         </record>
     </data>
 </odoo>
-        
+
     

@@ -1,0 +1,256 @@
+[1mdiff --git a/addons/nhan_su/__manifest__.py b/addons/nhan_su/__manifest__.py[m
+[1mindex 338cbd42..45458f03 100644[m
+[1m--- a/addons/nhan_su/__manifest__.py[m
+[1m+++ b/addons/nhan_su/__manifest__.py[m
+[36m@@ -25,6 +25,9 @@[m
+     # always loaded[m
+     'data': [[m
+         'security/ir.model.access.csv',[m
+[32m+[m[32m        'views/phong_ban.xml',[m
+[32m+[m[32m        'views/cham_cong.xml',[m
+[32m+[m[32m        'views/hop_dong.xml',[m
+         'views/nhan_vien.xml',[m
+         'views/menu.xml',[m
+     ],[m
+[1mdiff --git a/addons/nhan_su/models/cham_cong.py b/addons/nhan_su/models/cham_cong.py[m
+[1mnew file mode 100644[m
+[1mindex 00000000..9dba5d14[m
+[1m--- /dev/null[m
+[1m+++ b/addons/nhan_su/models/cham_cong.py[m
+[36m@@ -0,0 +1,13 @@[m
+[32m+[m[32mfrom odoo import models, fields[m
+[32m+[m
+[32m+[m[32mclass ChamCong(models.Model):[m
+[32m+[m[32m    _name = 'cham_cong'[m
+[32m+[m[32m    _description = 'Chấm công nhân viên'[m
+[32m+[m
+[32m+[m[32m    nhan_vien_id = fields.Many2one('nhan_vien', string="Nhân viên", required=True)[m
+[32m+[m[32m    ngay = fields.Date("Ngày chấm công", required=True)[m
+[32m+[m[32m    trang_thai = fields.Selection([[m
+[32m+[m[32m        ('di_lam', "Đi làm"),[m
+[32m+[m[32m        ('nghi_phep', "Nghỉ phép"),[m
+[32m+[m[32m        ('nghi_khong_phep', "Nghỉ không phép")[m
+[32m+[m[32m    ], string="Trạng thái", required=True)[m
+[1mdiff --git a/addons/nhan_su/models/hop_dong.py b/addons/nhan_su/models/hop_dong.py[m
+[1mnew file mode 100644[m
+[1mindex 00000000..a9309287[m
+[1m--- /dev/null[m
+[1m+++ b/addons/nhan_su/models/hop_dong.py[m
+[36m@@ -0,0 +1,16 @@[m
+[32m+[m[32mfrom odoo import models, fields[m
+[32m+[m
+[32m+[m[32mclass HopDong(models.Model):[m
+[32m+[m[32m    _name = 'hop_dong'[m
+[32m+[m[32m    _description = 'Hợp đồng lao động'[m
+[32m+[m
+[32m+[m[32m    ma_hop_dong = fields.Char("Mã hợp đồng", required=True)[m
+[32m+[m[32m    nhan_vien_id = fields.Many2one('nhan_vien', string="Nhân viên", required=True)[m
+[32m+[m[32m    ngay_ky = fields.Date("Ngày ký")[m
+[32m+[m[32m    ngay_het_han = fields.Date("Ngày hết hạn")[m
+[32m+[m[32m    loai_hop_dong = fields.Selection([[m
+[32m+[m[32m        ('thu_viec', "Thử việc"),[m
+[32m+[m[32m        ('chinh_thuc', "Chính thức"),[m
+[32m+[m[32m        ('thoi_vu', "Thời vụ")[m
+[32m+[m[32m    ], string="Loại hợp đồng", required=True)[m
+[32m+[m[32m    luong_co_ban = fields.Float("Lương cơ bản")[m
+[1mdiff --git a/addons/nhan_su/models/phong_ban.py b/addons/nhan_su/models/phong_ban.py[m
+[1mnew file mode 100644[m
+[1mindex 00000000..575a4881[m
+[1m--- /dev/null[m
+[1m+++ b/addons/nhan_su/models/phong_ban.py[m
+[36m@@ -0,0 +1,10 @@[m
+[32m+[m[32mfrom odoo import models, fields[m
+[32m+[m
+[32m+[m[32mclass PhongBan(models.Model):[m
+[32m+[m[32m    _name = 'phong_ban'[m
+[32m+[m[32m    _description = 'Phòng ban'[m
+[32m+[m
+[32m+[m[32m    ten_phong_ban = fields.Char("Tên phòng ban", required=True)[m
+[32m+[m[32m    ma_phong_ban = fields.Char("Mã phòng ban", required=True)[m
+[32m+[m[32m    truong_phong_id = fields.Many2one('nhan_vien', string="Trưởng phòng")[m
+[32m+[m[32m    nhan_vien_ids = fields.One2many('nhan_vien', 'phong_ban_id', string="Danh sách nhân viên")[m
+[1mdiff --git a/addons/nhan_su/views/cham_cong.xml b/addons/nhan_su/views/cham_cong.xml[m
+[1mnew file mode 100644[m
+[1mindex 00000000..271ed09a[m
+[1m--- /dev/null[m
+[1m+++ b/addons/nhan_su/views/cham_cong.xml[m
+[36m@@ -0,0 +1,59 @@[m
+[32m+[m[32m<?xml version="1.0" encoding="utf-8"?>[m
+[32m+[m[32m<odoo>[m
+[32m+[m[32m    <data>[m
+[32m+[m[32m        <!-- Form View -->[m
+[32m+[m[32m        <record id="view_cham_cong_form" model="ir.ui.view">[m
+[32m+[m[32m            <field name="name">cham_cong_form</field>[m
+[32m+[m[32m            <field name="model">cham_cong</field>[m
+[32m+[m[32m            <field name="arch" type="xml">[m
+[32m+[m[32m                <form>[m
+[32m+[m[32m                    <sheet>[m
+[32m+[m[32m                        <div class="oe_read_only" style="font-size:25px">Chấm Công</div>[m
+[32m+[m[32m                        <group col="4">[m
+[32m+[m[32m                            <field name="nhan_vien_id"/>[m
+[32m+[m[32m                            <field name="ngay_lam_viec"/>[m
+[32m+[m[32m                            <field name="gio_vao"/>[m
+[32m+[m[32m                            <field name="gio_ra"/>[m
+[32m+[m[32m                            <field name="trang_thai"/>[m
+[32m+[m[32m                        </group>[m
+[32m+[m[32m                    </sheet>[m
+[32m+[m[32m                </form>[m
+[32m+[m[32m            </field>[m
+[32m+[m[32m        </record>[m
+[32m+[m
+[32m+[m[32m        <!-- Tree View -->[m
+[32m+[m[32m        <record id="view_cham_cong_tree" model="ir.ui.view">[m
+[32m+[m[32m            <field name="name">cham_cong_tree</field>[m
+[32m+[m[32m            <field name="model">cham_cong</field>[m
+[32m+[m[32m            <field name="arch" type="xml">[m
+[32m+[m[32m                <tree>[m
+[32m+[m[32m                    <field name="nhan_vien_id"/>[m
+[32m+[m[32m                    <field name="ngay_lam_viec"/>[m
+[32m+[m[32m                    <field name="gio_vao"/>[m
+[32m+[m[32m                    <field name="gio_ra"/>[m
+[32m+[m[32m                    <field name="trang_thai"/>[m
+[32m+[m[32m                </tree>[m
+[32m+[m[32m            </field>[m
+[32m+[m[32m        </record>[m
+[32m+[m
+[32m+[m[32m        <!-- Search View -->[m
+[32m+[m[32m        <record model="ir.ui.view" id="cham_cong_search">[m
+[32m+[m[32m            <field name="model">cham_cong</field>[m
+[32m+[m[32m            <field name="arch" type="xml">[m
+[32m+[m[32m                <search>[m
+[32m+[m[32m                    <field name="nhan_vien_id"/>[m
+[32m+[m[32m                    <field name="ngay_lam_viec"/>[m
+[32m+[m[32m                    <field name="trang_thai"/>[m
+[32m+[m[32m                </search>[m
+[32m+[m[32m            </field>[m
+[32m+[m[32m        </record>[m
+[32m+[m
+[32m+[m[32m        <!-- Action -->[m
+[32m+[m[32m        <record id="action_cham_cong" model="ir.actions.act_window">[m
+[32m+[m[32m            <field name="name">Chấm Công</field>[m
+[32m+[m[32m            <field name="res_model">cham_cong</field>[m
+[32m+[m[32m            <field name="view_mode">tree,form</field>[m
+[32m+[m[32m            <field name="search_view_id" ref="cham_cong_search"/>[m
+[32m+[m[32m        </record>[m
+[32m+[m[32m    </data>[m
+[32m+[m[32m</odoo>[m
+[1mdiff --git a/addons/nhan_su/views/hop_dong.xml b/addons/nhan_su/views/hop_dong.xml[m
+[1mnew file mode 100644[m
+[1mindex 00000000..a439e343[m
+[1m--- /dev/null[m
+[1m+++ b/addons/nhan_su/views/hop_dong.xml[m
+[36m@@ -0,0 +1,42 @@[m
+[32m+[m[32m<?xml version="1.0" encoding="utf-8"?>[m
+[32m+[m[32m<odoo>[m
+[32m+[m[32m    <data>[m
+[32m+[m[32m        <record id="view_hop_dong_form" model="ir.ui.view">[m
+[32m+[m[32m            <field name="name">hop_dong.form</field>[m
+[32m+[m[32m            <field name="model">hop_dong</field>[m
+[32m+[m[32m            <field name="arch" type="xml">[m
+[32m+[m[32m                <form>[m
+[32m+[m[32m                    <sheet>[m
+[32m+[m[32m                        <group>[m
+[32m+[m[32m                            <field name="ma_hop_dong"/>[m
+[32m+[m[32m                            <field name="nhan_vien_id"/>[m
+[32m+[m[32m                            <field name="ngay_ky"/>[m
+[32m+[m[32m                            <field name="ngay_het_han"/>[m
+[32m+[m[32m                            <field name="loai_hop_dong"/>[m
+[32m+[m[32m                            <field name="luong_co_ban"/>[m
+[32m+[m[32m                        </group>[m
+[32m+[m[32m                    </sheet>[m
+[32m+[m[32m                </form>[m
+[32m+[m[32m            </field>[m
+[32m+[m[32m        </record>[m
+[32m+[m
+[32m+[m[32m        <record id="view_hop_dong_tree" model="ir.ui.view">[m
+[32m+[m[32m            <field name="name">hop_dong.tree</field>[m
+[32m+[m[32m            <field name="model">hop_dong</field>[m
+[32m+[m[32m            <field name="arch" type="xml">[m
+[32m+[m[32m                <tree>[m
+[32m+[m[32m                    <field name="ma_hop_dong"/>[m
+[32m+[m[32m                    <field name="nhan_vien_id"/>[m
+[32m+[m[32m                    <field name="ngay_ky"/>[m
+[32m+[m[32m                    <field name="ngay_het_han"/>[m
+[32m+[m[32m                </tree>[m
+[32m+[m[32m            </field>[m
+[32m+[m[32m        </record>[m
+[32m+[m
+[32m+[m[32m        <record id="action_hop_dong" model="ir.actions.act_window">[m
+[32m+[m[32m            <field name="name">Hợp đồng</field>[m
+[32m+[m[32m            <field name="res_model">hop_dong</field>[m
+[32m+[m[32m            <field name="view_mode">tree,form</field>[m
+[32m+[m[32m        </record>[m
+[32m+[m[32m    </data>[m
+[32m+[m[32m</odoo>[m
+[1mdiff --git a/addons/nhan_su/views/menu.xml b/addons/nhan_su/views/menu.xml[m
+[1mindex 68c9b153..6334ca56 100644[m
+[1m--- a/addons/nhan_su/views/menu.xml[m
+[1m+++ b/addons/nhan_su/views/menu.xml[m
+[36m@@ -1,16 +1,12 @@[m
+ <?xml version="1.0" encoding="utf-8"?>[m
+ <odoo>[m
+     <data>[m
+[31m-        <menuitem[m
+[31m-            id="menu_root"[m
+[31m-            name="QLNS"[m
+[31m-            sequence="0"/>[m
+[31m-          [m
+[31m-        <menuitem name="Quản lý nhân viên" [m
+[31m-            id="menu_nhan_vien" [m
+[31m-            parent="menu_root" [m
+[31m-            sequence="1"[m
+[31m-            action="action_nhan_vien"[m
+[31m-        />[m
+[32m+[m[32m        <menuitem id="menu_root" name="Quản lý Nhân sự" sequence="0"/>[m
+[32m+[m[41m        [m
+[32m+[m[32m        <menuitem name="Nhân viên" id="menu_nhan_vien" parent="menu_root" action="action_nhan_vien"/>[m
+[32m+[m[32m        <menuitem name="Hợp đồng" id="menu_hop_dong" parent="menu_root" action="action_hop_dong"/>[m
+[32m+[m[32m        <menuitem name="Phòng ban" id="menu_phong_ban" parent="menu_root" action="action_phong_ban"/>[m
+[32m+[m[32m        <menuitem name="Chấm công" id="menu_cham_cong" parent="menu_root" action="action_cham_cong"/>[m
+     </data>[m
+ </odoo>[m
+[41m+[m
+[1mdiff --git a/addons/nhan_su/views/phong_ban.xml b/addons/nhan_su/views/phong_ban.xml[m
+[1mnew file mode 100644[m
+[1mindex 00000000..f29e2718[m
+[1m--- /dev/null[m
+[1m+++ b/addons/nhan_su/views/phong_ban.xml[m
+[36m@@ -0,0 +1,38 @@[m
+[32m+[m[32m<?xml version="1.0" encoding="utf-8"?>[m
+[32m+[m[32m<odoo>[m
+[32m+[m[32m    <data>[m
+[32m+[m[32m        <record id="view_cham_cong_form" model="ir.ui.view">[m
+[32m+[m[32m            <field name="name">cham_cong.form</field>[m
+[32m+[m[32m            <field name="model">cham_cong</field>[m
+[32m+[m[32m            <field name="arch" type="xml">[m
+[32m+[m[32m                <form>[m
+[32m+[m[32m                    <sheet>[m
+[32m+[m[32m                        <group>[m
+[32m+[m[32m                            <field name="nhan_vien_id"/>[m
+[32m+[m[32m                            <field name="ngay"/>[m
+[32m+[m[32m                            <field name="trang_thai"/>[m
+[32m+[m[32m                        </group>[m
+[32m+[m[32m                    </sheet>[m
+[32m+[m[32m                </form>[m
+[32m+[m[32m            </field>[m
+[32m+[m[32m        </record>[m
+[32m+[m
+[32m+[m[32m        <record id="view_cham_cong_tree" model="ir.ui.view">[m
+[32m+[m[32m            <field name="name">cham_cong.tree</field>[m
+[32m+[m[32m            <field name="model">cham_cong</field>[m
+[32m+[m[32m            <field name="arch" type="xml">[m
+[32m+[m[32m                <tree>[m
+[32m+[m[32m                    <field name="nhan_vien_id"/>[m
+[32m+[m[32m                    <field name="ngay"/>[m
+[32m+[m[32m                    <field name="trang_thai"/>[m
+[32m+[m[32m                </tree>[m
+[32m+[m[32m            </field>[m
+[32m+[m[32m        </record>[m
+[32m+[m
+[32m+[m[32m        <record id="action_cham_cong" model="ir.actions.act_window">[m
+[32m+[m[32m            <field name="name">Chấm công</field>[m
+[32m+[m[32m            <field name="res_model">cham_cong</field>[m
+[32m+[m[32m            <field name="view_mode">tree,form</field>[m
+[32m+[m[32m        </record>[m
+[32m+[m[32m    </data>[m
+[32m+[m[32m</odoo>[m
