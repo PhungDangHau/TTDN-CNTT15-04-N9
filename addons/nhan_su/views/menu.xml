@@ -3,10 +3,10 @@
     <data>
         <menuitem id="menu_root" name="Quản lý Nhân sự" sequence="0"/>
         
-        <menuitem name="Nhân viên" id="menu_nhan_vien" parent="menu_root" action="action_nhan_vien"/>
-        <menuitem name="Hợp đồng" id="menu_hop_dong" parent="menu_root" action="action_hop_dong"/>
-        <menuitem name="Phòng ban" id="menu_phong_ban" parent="menu_root" action="action_phong_ban"/>
-        <menuitem name="Chấm công" id="menu_cham_cong" parent="menu_root" action="action_cham_cong"/>
+        <menuitem name="Nhân viên" id="menu_nhan_vien" parent="menu_root" action="action_nhan_vien" sequence="1"/>
+        <menuitem name="Hợp đồng" id="menu_hop_dong" parent="menu_root" action="action_hop_dong" sequence="2"/>
+        <menuitem name="Phòng ban" id="menu_phong_ban" parent="menu_root" action="action_phong_ban" sequence="3"/>
+        <menuitem name="Chấm công" id="menu_cham_cong" parent="menu_root" action="action_cham_cong" sequence="4"/>
     </data>
 </odoo>
 

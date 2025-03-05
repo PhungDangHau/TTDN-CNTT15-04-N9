@@ -8,13 +8,13 @@
             <field name="arch" type="xml">
                 <form>
                     <sheet>
-                        <div class="oe_read_only" style="font-size:25px">Chấm Công</div>
-                        <group col="4">
-                            <field name="nhan_vien_id"/>
-                            <field name="ngay_lam_viec"/>
-                            <field name="gio_vao"/>
-                            <field name="gio_ra"/>
-                            <field name="trang_thai"/>
+                        <div class="oe_title">
+                            <h1><field name="nhan_vien_id"/></h1>
+                        </div>
+                        <group>
+                            <field name="nhan_vien_id" string="Nhân viên" required="1"/>
+                            <field name="ngay" string="Ngày chấm công" required="1"/>
+                            <field name="trang_thai" string="Trạng thái" required="1"/>
                         </group>
                     </sheet>
                 </form>
@@ -28,9 +28,7 @@
             <field name="arch" type="xml">
                 <tree>
                     <field name="nhan_vien_id"/>
-                    <field name="ngay_lam_viec"/>
-                    <field name="gio_vao"/>
-                    <field name="gio_ra"/>
+                    <field name="ngay"/>
                     <field name="trang_thai"/>
                 </tree>
             </field>
@@ -42,7 +40,7 @@
             <field name="arch" type="xml">
                 <search>
                     <field name="nhan_vien_id"/>
-                    <field name="ngay_lam_viec"/>
+                    <field name="ngay"/>
                     <field name="trang_thai"/>
                 </search>
             </field>

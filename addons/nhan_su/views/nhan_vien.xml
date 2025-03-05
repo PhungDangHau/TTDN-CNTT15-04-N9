@@ -9,10 +9,13 @@
                     <sheet>
                         <div class="oe_read_only" style="font-size:25px">Nhân viên</div>
                         <group col="4" string="Thông tin chung">
+                            <field name="ten_nhan_vien"/>
                             <field name="ma_dinh_danh"/>
                             <field name="ngay_sinh"/>
                             <field name="que_quan"/>
                             <field name="email"/>
+                            <field name="so_dien_thoai"/>
+                            <field name="phong_ban_id"/>
                         </group>
                     </sheet>
                 </form>
@@ -24,10 +27,12 @@
             <field name="model">nhan_vien</field>
             <field name="arch" type="xml">
                 <tree>
+                    <field name="ten_nhan_vien"/>
                     <field name="ma_dinh_danh"/>
                     <field name="ngay_sinh"/>
                     <field name="que_quan"/>
                     <field name="email"/>
+                    <field name="phong_ban_id"/>
                 </tree>
             </field>
         </record>
@@ -36,10 +41,12 @@
             <field name="model">nhan_vien</field>
             <field name="arch" type="xml">
                 <search>
+                    <field name="ten_nhan_vien"/>
                     <field name="ma_dinh_danh"/>
                     <field name="ngay_sinh"/>
                     <field name="que_quan"/>
                     <field name="email"/>
+                    <field name="phong_ban_id"/>
                 </search>
             </field>
         </record>
@@ -48,9 +55,7 @@
             <field name="name">Nhân viên</field>
             <field name="res_model">nhan_vien</field>
             <field name="view_mode">tree,form</field>
-            <field name="search_view_id" ref = "nhan_vien_search"/>
+            <field name="search_view_id" ref="nhan_vien_search"/>
         </record>
     </data>
 </odoo>
-        
-    
