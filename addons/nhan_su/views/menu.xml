@@ -7,6 +7,8 @@
         <menuitem name="Hợp đồng" id="menu_hop_dong" parent="menu_root" action="action_hop_dong" sequence="2"/>
         <menuitem name="Phòng ban" id="menu_phong_ban" parent="menu_root" action="action_phong_ban" sequence="3"/>
         <menuitem name="Chấm công" id="menu_cham_cong" parent="menu_root" action="action_cham_cong" sequence="4"/>
+        <menuitem name="Lịch sử công tác" id="menu_lich_su_cong_tac" parent="menu_root" action="action_lich_su_cong_tac" sequence="5"/>
+        <menuitem name="Chức vụ" id="menu_chuc_vu" parent="menu_root" action="action_chuc_vu" sequence="6"/>
     </data>
 </odoo>
 
