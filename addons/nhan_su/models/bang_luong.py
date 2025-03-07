@@ -1,4 +1,6 @@
 from odoo import models, fields, api
+from datetime import datetime
+
 
 class BangLuong(models.Model):
     _name = 'bang_luong'
@@ -11,7 +13,11 @@ class BangLuong(models.Model):
         ('9', 'Tháng 9'), ('10', 'Tháng 10'), ('11', 'Tháng 11'), ('12', 'Tháng 12')
     ], string="Tháng", required=True)
     
-    nam = fields.Integer(string="Năm", required=True, default=lambda self: fields.Date.today().year)
+    nam = fields.Integer(
+    string="Năm",
+    required=True,
+    default=lambda self: datetime.today().year
+    )
     luong_co_ban = fields.Float(string="Lương cơ bản", required=True)
     phu_cap = fields.Float(string="Phụ cấp", default=0.0)
     thuong = fields.Float(string="Thưởng", default=0.0)
