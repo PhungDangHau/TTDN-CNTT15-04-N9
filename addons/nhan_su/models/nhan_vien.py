@@ -1,6 +1,5 @@
 from odoo import models, fields, api
 
-
 class NhanVien(models.Model):
     _name = 'nhan_vien'
     _description = 'Bảng chứa thông tin nhân viên'
@@ -9,6 +8,12 @@ class NhanVien(models.Model):
     ten_nhan_vien = fields.Char("Tên nhân viên", required=True)
     ma_dinh_danh = fields.Char("Mã định danh", required=True)
     ngay_sinh = fields.Date("Ngày sinh")
+    gioi_tinh = fields.Selection([
+        ('nam', 'Nam'),
+        ('nu', 'Nữ'),
+        ('khac', 'Khác')
+    ], string="Giới tính", default='')
+    
     que_quan = fields.Char("Quê quán")
     email = fields.Char("Email")
     so_dien_thoai = fields.Char("Số điện thoại")

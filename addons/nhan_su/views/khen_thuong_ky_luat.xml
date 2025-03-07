@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_khen_thuong_ky_luat_tree" model="ir.ui.view">
+        <field name="name">khen.thuong.ky.luat.tree</field>
+        <field name="model">khen_thuong_ky_luat</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="nhan_vien_id"/>
+                <field name="loai"/>
+                <field name="ngay"/>
+                <field name="ly_do"/>
+                <field name="hinh_thuc"/>
+                <field name="so_tien"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_khen_thuong_ky_luat_form" model="ir.ui.view">
+        <field name="name">khen.thuong.ky.luat.form</field>
+        <field name="model">khen_thuong_ky_luat</field>
+        <field name="arch" type="xml">
+            <form string="Khen thưởng &amp; Kỷ luật">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="nhan_vien_id"/>
+                            <field name="loai"/>
+                            <field name="ngay"/>
+                            <field name="so_tien"/>
+                        </group>
+                        <group>
+                            <field name="hinh_thuc"/>
+                            <field name="ly_do"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_khen_thuong_ky_luat" model="ir.actions.act_window">
+        <field name="name">Khen thưởng và Kỷ luật</field>
+        <field name="res_model">khen_thuong_ky_luat</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

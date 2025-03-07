@@ -12,6 +12,7 @@
                             <field name="ten_nhan_vien"/>
                             <field name="ma_dinh_danh"/>
                             <field name="ngay_sinh"/>
+                            <field name="gioi_tinh"/>  
                             <field name="que_quan"/>
                             <field name="email"/>
                             <field name="so_dien_thoai"/>
@@ -30,6 +31,7 @@
                     <field name="ten_nhan_vien"/>
                     <field name="ma_dinh_danh"/>
                     <field name="ngay_sinh"/>
+                    <field name="gioi_tinh"/>  
                     <field name="que_quan"/>
                     <field name="email"/>
                     <field name="phong_ban_id"/>
@@ -44,6 +46,7 @@
                     <field name="ten_nhan_vien"/>
                     <field name="ma_dinh_danh"/>
                     <field name="ngay_sinh"/>
+                    <field name="gioi_tinh"/>  
                     <field name="que_quan"/>
                     <field name="email"/>
                     <field name="phong_ban_id"/>

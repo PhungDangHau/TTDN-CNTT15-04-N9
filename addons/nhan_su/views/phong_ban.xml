@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <!-- Form View for PhongBan -->
         <record id="view_phong_ban_form" model="ir.ui.view">
             <field name="name">phong_ban.form</field>
             <field name="model">phong_ban</field>
@@ -34,7 +33,6 @@
             </field>
         </record>
 
-        <!-- Tree View for PhongBan -->
         <record id="view_phong_ban_tree" model="ir.ui.view">
             <field name="name">phong_ban.tree</field>
             <field name="model">phong_ban</field>
@@ -47,7 +45,6 @@
             </field>
         </record>
 
-        <!-- Search View for PhongBan -->
         <record id="view_phong_ban_search" model="ir.ui.view">
             <field name="name">phong_ban.search</field>
             <field name="model">phong_ban</field>
@@ -60,7 +57,6 @@
             </field>
         </record>
 
-        <!-- Action for PhongBan -->
         <record id="action_phong_ban" model="ir.actions.act_window">
             <field name="name">Phòng Ban</field>
             <field name="res_model">phong_ban</field>
