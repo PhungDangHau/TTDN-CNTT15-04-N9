@@ -1,13 +1,6 @@
 Đề Tài: Quản lý nhân sự của tôi gồm những chức năng
 
-Thông tin nhân viên
-Hợp đồng 
-Chấm công
-Phòng ban
-Lịch sử công tác
-Chức vụ
-Bảng lương
-Khen thưởng kỷ luật
+Thông tin nhân viên,Hợp đồng,Chấm công,Lịch sử công tác,Phòng ban,Chức vụ,Bảng lương,Khen thưởng kỷ luật
 
 Demo sản phẩm:
 
