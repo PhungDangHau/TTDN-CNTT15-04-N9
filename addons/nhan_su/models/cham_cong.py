@@ -3,7 +3,8 @@ from odoo import models, fields
 class ChamCong(models.Model):
     _name = 'cham_cong'
     _description = 'Chấm công nhân viên'
-
+    _rec_name= "nhan_vien_id"
+    
     nhan_vien_id = fields.Many2one('nhan_vien', string="Nhân viên", required=True)
     ngay = fields.Date("Ngày chấm công", required=True)
     trang_thai = fields.Selection([

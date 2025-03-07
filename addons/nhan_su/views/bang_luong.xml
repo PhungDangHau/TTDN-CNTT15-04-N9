@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_bang_luong_form" model="ir.ui.view">
+            <field name="name">bang_luong.form</field>
+            <field name="model">bang_luong</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <h1>
+                            <field name="nhan_vien_id"/>
+                        </h1>
+                        <group>
+                            <group>
+                                <field name="thang"/>
+                                <field name="nam"/>
+                                <field name="phong_ban_id"/>
+                                <field name="chuc_vu_id"/>
+                            </group>
+                            <group>
+                                <field name="luong_co_ban"/>
+                                <field name="phu_cap"/>
+                                <field name="thuong"/>
+                                <field name="khau_tru"/>
+                                <field name="tong_luong" readonly="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_bang_luong_tree" model="ir.ui.view">
+            <field name="name">bang_luong.tree</field>
+            <field name="model">bang_luong</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="nhan_vien_id"/>
+                    <field name="thang"/>
+                    <field name="nam"/>
+                    <field name="phong_ban_id"/>
+                    <field name="chuc_vu_id"/>
+                    <field name="tong_luong"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="bang_luong_search" model="ir.ui.view">
+            <field name="name">bang_luong.search</field>
+            <field name="model">bang_luong</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="nhan_vien_id"/>
+                    <field name="thang"/>
+                    <field name="nam"/>
+                    <field name="phong_ban_id"/>
+                    <field name="chuc_vu_id"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_bang_luong" model="ir.actions.act_window">
+            <field name="name">Bảng Lương</field>
+            <field name="res_model">bang_luong</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="bang_luong_search"/>
+        </record>
+    </data>
+</odoo>

@@ -3,7 +3,8 @@ from odoo import models, fields
 class HopDong(models.Model):
     _name = 'hop_dong'
     _description = 'Hợp đồng lao động'
-
+    _rec_name = "ma_hop_dong"
+    
     ma_hop_dong = fields.Char("Mã hợp đồng", required=True)
     nhan_vien_id = fields.Many2one('nhan_vien', string="Nhân viên", required=True)
     ngay_ky = fields.Date("Ngày ký")

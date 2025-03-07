@@ -1,54 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <!-- Form View -->
         <record id="view_cham_cong_form" model="ir.ui.view">
             <field name="name">cham_cong_form</field>
             <field name="model">cham_cong</field>
             <field name="arch" type="xml">
                 <form>
                     <sheet>
-                        <div class="oe_read_only" style="font-size:25px">Chấm Công</div>
-                        <group col="4">
-                            <field name="nhan_vien_id"/>
-                            <field name="ngay_lam_viec"/>
-                            <field name="gio_vao"/>
-                            <field name="gio_ra"/>
-                            <field name="trang_thai"/>
+                        <div class="oe_title">
+                            <h1><field name="nhan_vien_id"/></h1>
+                        </div>
+                        <group>
+                            <field name="nhan_vien_id" string="Nhân viên" required="1"/>
+                            <field name="ngay" string="Ngày chấm công" required="1"/>
+                            <field name="trang_thai" string="Trạng thái" required="1"/>
                         </group>
                     </sheet>
                 </form>
             </field>
         </record>
 
-        <!-- Tree View -->
         <record id="view_cham_cong_tree" model="ir.ui.view">
             <field name="name">cham_cong_tree</field>
             <field name="model">cham_cong</field>
             <field name="arch" type="xml">
                 <tree>
                     <field name="nhan_vien_id"/>
-                    <field name="ngay_lam_viec"/>
-                    <field name="gio_vao"/>
-                    <field name="gio_ra"/>
+                    <field name="ngay"/>
                     <field name="trang_thai"/>
                 </tree>
             </field>
         </record>
 
-        <!-- Search View -->
         <record model="ir.ui.view" id="cham_cong_search">
             <field name="model">cham_cong</field>
             <field name="arch" type="xml">
                 <search>
                     <field name="nhan_vien_id"/>
-                    <field name="ngay_lam_viec"/>
+                    <field name="ngay"/>
                     <field name="trang_thai"/>
                 </search>
             </field>
         </record>
 
-        <!-- Action -->
         <record id="action_cham_cong" model="ir.actions.act_window">
             <field name="name">Chấm Công</field>
             <field name="res_model">cham_cong</field>
