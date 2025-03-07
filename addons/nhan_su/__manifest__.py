@@ -33,6 +33,7 @@
         'views/chuc_vu.xml',
         'views/bang_luong.xml',
         'views/khen_thuong_ky_luat.xml',
+        'views/lich_su_dao_tao.xml',
         'views/menu.xml',
     ],
     # only loaded in demonstration mode

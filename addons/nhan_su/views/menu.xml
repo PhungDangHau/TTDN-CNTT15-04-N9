@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-       
+        <!-- Menu Gốc -->
         <menuitem id="menu_root" name="Quản lý Nhân sự" sequence="0"/>
         
-     
+        <!-- Các Menu Con -->
         <menuitem id="menu_nhan_vien" name="Nhân viên" parent="menu_root" action="action_nhan_vien" sequence="1"/>
         <menuitem id="menu_hop_dong" name="Hợp đồng" parent="menu_root" action="action_hop_dong" sequence="2"/>
         <menuitem id="menu_phong_ban" name="Phòng ban" parent="menu_root" action="action_phong_ban" sequence="3"/>
@@ -13,5 +13,6 @@
         <menuitem id="menu_chuc_vu" name="Chức vụ" parent="menu_root" action="action_chuc_vu" sequence="6"/>
         <menuitem id="menu_bang_luong" name="Bảng Lương" parent="menu_root" action="action_bang_luong" sequence="7"/>
         <menuitem id="menu_khen_thuong_ky_luat" name="Khen thưởng kỷ luật" parent="menu_root" action="action_khen_thuong_ky_luat" sequence="8"/>
+        <menuitem id="menu_lich_su_dao_tao" name="Lịch sử đào tạo" parent="menu_root" action="action_lich_su_dao_tao" sequence="9"/>
     </data>
 </odoo>

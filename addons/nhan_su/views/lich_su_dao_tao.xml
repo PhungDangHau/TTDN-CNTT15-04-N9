@@ -1,0 +1,42 @@
+<odoo>
+    <!-- Tree View -->
+    <record id="view_lich_su_dao_tao_tree" model="ir.ui.view">
+        <field name="name">lich.su.dao.tao.tree</field>
+        <field name="model">lich_su_dao_tao</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="nhan_vien_id"/>
+                <field name="ten_khoa_dao_tao"/>
+                <field name="ngay_bat_dau"/>
+                <field name="ngay_ket_thuc"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_lich_su_dao_tao_form" model="ir.ui.view">
+        <field name="name">lich.su.dao.tao.form</field>
+        <field name="model">lich_su_dao_tao</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="nhan_vien_id"/>
+                        <field name="ten_khoa_dao_tao"/>
+                        <field name="ngay_bat_dau"/>
+                        <field name="ngay_ket_thuc"/>
+                        <field name="noi_dung_dao_tao"/>
+                        <field name="ghi_chu"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_lich_su_dao_tao" model="ir.actions.act_window">
+        <field name="name">Lịch Sử Đào Tạo</field>
+        <field name="res_model">lich_su_dao_tao</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>
