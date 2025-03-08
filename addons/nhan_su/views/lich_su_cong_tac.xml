@@ -14,12 +14,18 @@
                             <field name="phong_ban_id"/>                   
                             <field name="chuc_vu_id"/>
                         </group>
+                        <group col="2" string="Chi tiết công tác">
+                            <field name="ngay_bat_dau"/>
+                            <field name="ngay_ket_thuc"/>
+                        </group>
+                        <group string="Ghi chú">
+                            <field name="ghi_chu" widget="text"/>
+                        </group>
                     </sheet>
                 </form>
             </field>
         </record>
 
-        
         <record id="view_lich_su_cong_tac_tree" model="ir.ui.view">
             <field name="name">lich_su_cong_tac.tree</field>
             <field name="model">lich_su_cong_tac</field>
@@ -28,11 +34,12 @@
                     <field name="nhan_vien_id"/>
                     <field name="phong_ban_id"/>
                     <field name="chuc_vu_id"/>
+                    <field name="ngay_bat_dau"/>
+                    <field name="ngay_ket_thuc"/>
                 </tree>
             </field>
         </record>
 
-        
         <record id="view_lich_su_cong_tac_search" model="ir.ui.view">
             <field name="name">lich_su_cong_tac.search</field>
             <field name="model">lich_su_cong_tac</field>
@@ -43,11 +50,12 @@
                         <field name="phong_ban_id" select="multi"/>
                         <field name="chuc_vu_id" select="multi"/>
                     </searchpanel>
+                    <field name="ngay_bat_dau"/>
+                    <field name="ngay_ket_thuc"/>
                 </search>
             </field>
         </record>
 
-        
         <record id="action_lich_su_cong_tac" model="ir.actions.act_window">
             <field name="name">Lịch Sử Công Tác</field>
             <field name="res_model">lich_su_cong_tac</field>

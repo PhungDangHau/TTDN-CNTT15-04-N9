@@ -8,3 +8,4 @@ class ChucVu(models.Model):
 
     ma_chuc_vu = fields.Char("Mã chức vụ", required=True)
     ten_chuc_vu = fields.Char("Tên chức vụ", required=True)
+    nhan_vien_ids = fields.One2many('nhan_vien', 'chuc_vu_id', string="Nhân viên")
