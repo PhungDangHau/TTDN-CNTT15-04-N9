@@ -7,7 +7,8 @@ Demo sản phẩm:
 Chức năng Nhân viên
 
 ![image](https://github.com/user-attachments/assets/e9266915-e881-4f7f-b2c4-e1322a0ace61)
-![image](https://github.com/user-attachments/assets/5a9a8e3e-2c31-4373-a131-4ba0534432ab)
+![image](https://github.com/user-attachments/assets/df0ddeb5-6c48-4e5d-90ad-9bd78a0efcb4)
+
 
 Chức năng Hợp đồng
 
