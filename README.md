@@ -1,3 +1,28 @@
+Đề Tài: Quản lý nhân sự của tôi gồm những chức năng
+
+Thông tin nhân viên,Hợp đồng,Chấm công,Lịch sử công tác,Phòng ban,Chức vụ,Bảng lương,Khen thưởng kỷ luật
+
+Demo sản phẩm:
+
+Chức năng Nhân viên
+
+![image](https://github.com/user-attachments/assets/e9266915-e881-4f7f-b2c4-e1322a0ace61)
+![image](https://github.com/user-attachments/assets/5a9a8e3e-2c31-4373-a131-4ba0534432ab)
+
+Chức năng Hợp đồng
+
+![image](https://github.com/user-attachments/assets/610d3cfd-cd4c-4f78-ac37-1c5bba41142a)
+![image](https://github.com/user-attachments/assets/43ebde36-04ba-4199-af68-961403353a8c)
+
+Chức năng chấm công
+
+![image](https://github.com/user-attachments/assets/d8d59052-46cc-40f9-a493-8d7998221f94)
+![image](https://github.com/user-attachments/assets/7b6fd457-2992-4e6c-8f49-00e575c296af)
+
+
+
+
+
 ---
 ![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)
 ![GitLab](https://img.shields.io/badge/gitlab-%23181717.svg?style=for-the-badge&logo=gitlab&logoColor=white)
