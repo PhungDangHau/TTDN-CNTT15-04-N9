@@ -21,10 +21,9 @@
                             <field name="trang_thai"/>
                             <field name="phong_ban_id"/>
                             <field name="chuc_vu_id"/>
-                            <group string="Sơ yếu lý lịch">
-                            <field name="so_yeu_ly_lich" widget="attachment"/>
-                            </group>
-
+                        </group>
+                        <group string="Sơ yếu lý lịch">
+                            <field name="so_yeu_ly_lich" widget="attachment" string="Tệp đính kèm"/>
                         </group>
                         <notebook>
                             <page string="Lịch Sử Đào Tạo">

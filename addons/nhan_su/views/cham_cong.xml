@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-
         <!-- Form View -->
         <record id="view_cham_cong_form" model="ir.ui.view">
             <field name="name">cham_cong_form</field>
@@ -9,13 +8,13 @@
             <field name="arch" type="xml">
                 <form>
                     <sheet>
-                        <div class="oe_title">
-                            <h1><field name="nhan_vien_id"/></h1>
-                        </div>
-                        <group>
-                            <field name="nhan_vien_id" string="Nhân viên" required="1"/>
-                            <field name="ngay" string="Ngày chấm công" required="1"/>
-                            <field name="trang_thai" string="Trạng thái" required="1"/>
+                        <div class="oe_read_only" style="font-size:25px">Chấm Công</div>
+                        <group col="4">
+                            <field name="nhan_vien_id"/>
+                            <field name="ngay_lam_viec"/>
+                            <field name="gio_vao"/>
+                            <field name="gio_ra"/>
+                            <field name="trang_thai"/>
                         </group>
                     </sheet>
                 </form>
@@ -29,7 +28,9 @@
             <field name="arch" type="xml">
                 <tree>
                     <field name="nhan_vien_id"/>
-                    <field name="ngay"/>
+                    <field name="ngay_lam_viec"/>
+                    <field name="gio_vao"/>
+                    <field name="gio_ra"/>
                     <field name="trang_thai"/>
                 </tree>
             </field>
@@ -41,7 +42,7 @@
             <field name="arch" type="xml">
                 <search>
                     <field name="nhan_vien_id"/>
-                    <field name="ngay"/>
+                    <field name="ngay_lam_viec"/>
                     <field name="trang_thai"/>
                 </search>
             </field>
@@ -54,18 +55,5 @@
             <field name="view_mode">tree,form</field>
             <field name="search_view_id" ref="cham_cong_search"/>
         </record>
-
-        <!-- Cron Job: Tự động chấm công hàng ngày -->
-        <record id="cron_auto_cham_cong" model="ir.cron">
-            <field name="name">Tự động chấm công mỗi ngày</field>
-            <field name="model_id" ref="your_module_name.model_cham_cong"/>
-            <field name="state">code</field>
-            <field name="code">model.auto_cham_cong()</field>
-            <field name="interval_number">1</field>
-            <field name="interval_type">days</field>
-            <field name="numbercall">-1</field>
-            <field name="active" eval="True"/>
-        </record>
-
     </data>
 </odoo>

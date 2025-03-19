@@ -1,30 +1,24 @@
 from odoo import models, fields, api
-from datetime import date
+from datetime import datetime
 
 class ChamCong(models.Model):
     _name = 'cham_cong'
-    _description = 'Chấm công nhân viên'
-    _rec_name = "nhan_vien_id"
+    _description = 'Chấm Công'
 
-    nhan_vien_id = fields.Many2one('nhan_vien', string="Nhân viên", required=True)
-    ngay = fields.Date("Ngày chấm công", required=True, default=fields.Date.context_today)
+    nhan_vien_id = fields.Many2one('nhan_vien', string="Nhân Viên", required=True)
+    ngay_lam_viec = fields.Date(string="Ngày Làm Việc", required=True, default=fields.Date.context_today)
+    gio_vao = fields.Char(string="Giờ Vào", default=lambda self: datetime.now().strftime('%H:%M'))
+    gio_ra = fields.Char(string="Giờ Ra")
+
     trang_thai = fields.Selection([
-        ('di_lam', "Đi làm"),
-        ('nghi_phep', "Nghỉ phép"),
-        ('nghi_khong_phep', "Nghỉ không phép")
-    ], string="Trạng thái", required=True, default='di_lam')
-
-    @api.model
-    def auto_cham_cong(self):
-        """Tự động chấm công cho tất cả nhân viên mỗi ngày"""
-        nhan_vien_ids = self.env['nhan_vien'].search([])  # Lấy tất cả nhân viên
-        ngay_hom_nay = date.today()
-
-        for nhan_vien in nhan_vien_ids:
-            # Kiểm tra nếu hôm nay đã có bản ghi chấm công cho nhân viên này
-            if not self.env['cham_cong'].search([('nhan_vien_id', '=', nhan_vien.id), ('ngay', '=', ngay_hom_nay)]):
-                self.create({
-                    'nhan_vien_id': nhan_vien.id,
-                    'ngay': ngay_hom_nay,
-                    'trang_thai': 'di_lam'  # Mặc định là đi làm
-                })
+        ('di_lam', 'Đi Làm'),
+        ('nghi_phep', 'Nghỉ Phép'),
+        ('nghi_khong_phep', 'Nghỉ Không Phép')
+    ], string="Trạng Thái", default='di_lam')
+@api.onchange('gio_vao')
+def _onchange_gio_vao(self):
+    """ Khi có giờ vào, tự động tính giờ ra sau 8 tiếng """
+    if self.gio_vao:
+        gio, phut = map(int, self.gio_vao.split(':'))
+        gio_ra = (gio + 8) % 24  # Giới hạn trong 24h
+        self.gio_ra = f"{gio_ra:02}:{phut:02}"
