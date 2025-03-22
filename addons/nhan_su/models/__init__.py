@@ -9,4 +9,4 @@ from . import chuc_vu
 from . import bang_luong
 from . import khen_thuong_ky_luat
 from . import lich_su_dao_tao
-
+from . import so_yeu_ly_lich

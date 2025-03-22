@@ -14,5 +14,6 @@
         <menuitem id="menu_bang_luong" name="Bảng Lương" parent="menu_root" action="action_bang_luong" sequence="7"/>
         <menuitem id="menu_khen_thuong_ky_luat" name="Khen thưởng kỷ luật" parent="menu_root" action="action_khen_thuong_ky_luat" sequence="8"/>
         <menuitem id="menu_lich_su_dao_tao" name="Lịch sử đào tạo" parent="menu_root" action="action_lich_su_dao_tao" sequence="9"/>
+        <menuitem id="menu_so_yeu_ly_lich" name="Sơ yếu lý lịch" parent="menu_root" action="action_so_yeu_ly_lich" sequence="10"/>
     </data>
 </odoo>

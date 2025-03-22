@@ -22,9 +22,6 @@
                             <field name="phong_ban_id"/>
                             <field name="chuc_vu_id"/>
                         </group>
-                        <group string="Sơ yếu lý lịch">
-                            <field name="so_yeu_ly_lich" widget="attachment" string="Tệp đính kèm"/>
-                        </group>
                         <notebook>
                             <page string="Lịch Sử Đào Tạo">
                                 <field name="lich_su_dao_tao_ids">
@@ -47,6 +44,16 @@
                                         <field name="ghi_chu"/>
                                     </tree>
                                 </field>
+                            </page>
+                            <page string="Sơ yếu lý lịch">
+                                <group>
+                                    <field name="so_yeu_ly_lich_ids" widget="one2many_list">
+                                         <tree>
+                                            <field name="file_sy_ly_lich" widget="binary"/>
+                                            <field name="file_name"/>
+                                        </tree>
+                                    </field>
+                                </group>
                             </page>
                         </notebook>
                     </sheet>
@@ -72,17 +79,22 @@
         </record>
 
         <record model="ir.ui.view" id="nhan_vien_search">
+            <field name="name">nhan_vien_search</field>
             <field name="model">nhan_vien</field>
             <field name="arch" type="xml">
                 <search>
+                    <searchpanel>
+                        <field name="phong_ban_id" select="multi"/>
+                        <field name="chuc_vu_id" select="multi"/>
+                        <field name="trang_thai" select="single"/>
+                    </searchpanel>
+
                     <field name="ten_nhan_vien"/>
                     <field name="ma_dinh_danh"/>
                     <field name="ngay_sinh"/>
                     <field name="gioi_tinh"/>  
                     <field name="que_quan"/>
                     <field name="email"/>
-                    <field name="phong_ban_id"/>
-                    <field name="chuc_vu_id"/>
                 </search>
             </field>
         </record>
@@ -92,6 +104,6 @@
             <field name="res_model">nhan_vien</field>
             <field name="view_mode">tree,form</field>
             <field name="search_view_id" ref="nhan_vien_search"/>
-        </record>
+        </record>   
     </data>
 </odoo>

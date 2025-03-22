@@ -1,0 +1,55 @@
+<odoo>
+    <data>
+        <!-- Form View -->
+        <record id="view_so_yeu_ly_lich_form" model="ir.ui.view">
+            <field name="name">so_yeu_ly_lich_form</field>
+            <field name="model">so_yeu_ly_lich</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <h2>Sơ yếu lý lịch</h2>
+                        <group string="Tải lên hồ sơ">
+                            <field name="file_sy_ly_lich" filename="file_name"/>
+                            <field name="file_name"/>
+                        </group>
+                        <group string="Xem trước">
+                            <field name="file_sy_ly_lich" widget="pdf_viewer"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Tree View -->
+        <record id="view_so_yeu_ly_lich_tree" model="ir.ui.view">
+            <field name="name">so_yeu_ly_lich_tree</field>
+            <field name="model">so_yeu_ly_lich</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="nhan_vien_id"/>
+                    <field name="file_name"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Search View -->
+        <record id="view_so_yeu_ly_lich_search" model="ir.ui.view">
+            <field name="name">so_yeu_ly_lich_search</field>
+            <field name="model">so_yeu_ly_lich</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="nhan_vien_id"/>
+                    <field name="file_name"/>
+                </search>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <record id="action_so_yeu_ly_lich" model="ir.actions.act_window">
+            <field name="name">Sơ yếu lý lịch</field>
+            <field name="res_model">so_yeu_ly_lich</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_so_yeu_ly_lich_search"/>
+        </record>
+    </data>
+</odoo>

@@ -34,6 +34,8 @@
         'views/bang_luong.xml',
         'views/khen_thuong_ky_luat.xml',
         'views/lich_su_dao_tao.xml',
+        'data/ir_cron_data.xml',
+        'views/so_yeu_ly_lich.xml',
         'views/menu.xml',
     ],
     # only loaded in demonstration mode
