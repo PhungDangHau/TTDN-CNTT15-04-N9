@@ -1,10 +1,10 @@
-1.Đề Tài: Quản lý nhân sự 
+# Đề Tài: Quản lý nhân sự 
 
 Chúng tôi tạo ra đề tài nhằm quản lý tác nhân sự này để có thể quản lý tác nhân nhân sự trong 1 công ty, chúng tôi đã sử dụng odoo để triển khai ứng dụng, trong ứng dụng của chúng tôi bao gồm những chức năng
 
 Thông tin nhân viên,Hợp đồng,Chấm công,Lịch sử công tác,Lịch sử đào tạo,Phòng ban,Chức vụ,Bảng lương,Khen thưởng kỷ luật
 
-Demo sản phẩm:
+## Demo sản phẩm:
 
 Chức năng Nhân viên
 
