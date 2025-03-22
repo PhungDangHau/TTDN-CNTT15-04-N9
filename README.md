@@ -1,4 +1,4 @@
-# Đề Tài: Quản lý nhân sự 
+# ĐỀ TÀI: QUẢN LÝ NHÂN SỰ
 
 Chúng tôi tạo ra đề tài nhằm quản lý tác nhân sự này để có thể quản lý tác nhân nhân sự trong 1 công ty, chúng tôi đã sử dụng odoo để triển khai ứng dụng, trong ứng dụng của chúng tôi bao gồm những chức năng
 
